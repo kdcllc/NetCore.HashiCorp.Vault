@@ -1,0 +1,21 @@
+version: '3.4'
+ 
+services:
+  vault:
+    image: vault:v0.6.0
+    cap_add: 
+     - IPC_LOCK
+    environment:
+     VAULT_ADDR: "http://127.0.0.1:8300"
+     VAULT_DEV_LISTEN_ADDRESS: 0.0.0.0:8300
+     VAULT_DEV_ROOT_TOKEN_ID: root_dev_token
+     VAULT_LOG: 'debug'
+     SKIP_SETCAP: 'true'
+     #VAULT_LOCAL_CONFIG: '{"backend": {"file": {"path": "/vault/file"}},"listener": {"tcp":{"address": "0.0.0.0:8300","tls_disable":"1"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h"}'
+     #VAULT_LOCAL_CONFIG: '{"backend": {"storage": {"inmem":{}},"listener": {"tcp":{"address": "0.0.0.0:8300","tls_disable":"1"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h"}'
+    ports:
+     - "8300:8300"
+     - "8200:8200"
+    #volumes:
+     #- ./file:/vault/file:rw
+     #- ./config:/vault/config:rw

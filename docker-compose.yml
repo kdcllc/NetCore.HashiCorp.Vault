@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+ 
+  consoleapp:
+    image: ${DOCKER_REGISTRY}consoleapp
+    build:
+      context: src/ConsoleApp/
+      dockerfile: Dockerfile
+
+
+  webapp:
+    image: ${DOCKER_REGISTRY}webapp
+    build:
+      context: src/WebApp/
+      dockerfile: Dockerfile
+

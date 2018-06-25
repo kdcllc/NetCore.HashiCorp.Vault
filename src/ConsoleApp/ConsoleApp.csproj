@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp2.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NetCore.HashiCorp.Vault\NetCore.HashiCorp.Vault.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.0" />
+
+		<PackageReference Include="VaultSharp" Version="0.6.4" />
+	</ItemGroup>
+</Project>
