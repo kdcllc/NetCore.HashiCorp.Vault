@@ -21,7 +21,7 @@ namespace WebApp
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ContextBoundObject, configBuilder) => {
+                .ConfigureAppConfiguration((context, configBuilder) => {
                     configBuilder.AddEnvironmentVariables();
                     configBuilder.AddJsonFile("appsettings.json", optional: true);
                     configBuilder.AddCommandLine(args);
@@ -29,14 +29,19 @@ namespace WebApp
                     var configuration = configBuilder.Build();
 
                     #region DEBUG: Seed the Vault before reading into Configurations
+                    // bind vault options
                     var options = new VaultOptions();
                     configuration.Bind("VaultOptions", options);
+
+                    // bind seeder
                     var seedData = new List<VaultSeeder>();
                     configuration.Bind("VaultSeeder", seedData);
+
                     var logger = new LoggerFactory()
                            .AddConsole()
                            .AddDebug()
                            .CreateLogger<VaultWriteService>();
+                    // seed
                     new VaultWriteService(
                            logger,
                            options,
@@ -44,9 +49,11 @@ namespace WebApp
                            ).SeedVault();
                     #endregion
 
+                    // retrieve encrypted values and make available to the application
                     configuration = configBuilder.AddHashiCorpVault(configuration).Build();
 
-                    ContextBoundObject.Configuration = configuration;
+                    // set configuration
+                    context.Configuration = configuration;
                 })
                 .UseStartup<Startup>();
     }
