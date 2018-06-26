@@ -12,3 +12,15 @@ services:
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+  # vault:
+  #   cap_add: 
+  #    - IPC_LOCK
+  #   environment:
+  #    - VAULT_ADDR=http://127.0.0.1:8300
+  #    - VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8300
+  #    - VAULT_DEV_ROOT_TOKEN_ID=root_dev_token
+  #    - VAULT_LOG=debug
+  #    - SKIP_SETCAP=true
+  #   ports:
+  #    - "8300:8300"
+  #    - "8200:8200" 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.HashiCorpVault;
+using Microsoft.Extensions.Configuration.HashiCorpVault.Test;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -107,7 +108,6 @@ namespace ConsoleApp
             #endregion
 
             // Add Application dependecies
-            services.AddTransient<ISeedVaultService, SeedVaultService>();
             services.AddTransient<IReadVault, ReadVault>();
 
             #region Add Logging
@@ -149,6 +149,27 @@ namespace ConsoleApp
             }
 
             Configuration = builder.Build();
+
+            #region DEBUG: Seed the Vault before reading into Configurations
+
+            var options = new VaultOptions();
+            Configuration.Bind("VaultOptions", options);
+
+            var seedData = new List<VaultSeeder>();
+            Configuration.Bind("VaultSeeder", seedData);
+
+            var logger = new LoggerFactory()
+                   .AddConsole()
+                   .AddDebug()
+                   .CreateLogger<VaultWriteService>();
+
+            new VaultWriteService(
+                   logger,
+                   options,
+                   seedData
+                   ).SeedVault();
+
+            #endregion
 
             // Add Vault Registration
             Configuration = builder.AddHashiCorpVault(Configuration).Build();

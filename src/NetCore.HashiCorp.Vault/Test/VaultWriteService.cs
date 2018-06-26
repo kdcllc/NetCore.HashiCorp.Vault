@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration.HashiCorpVault;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using VaultSharp;
@@ -7,20 +6,29 @@ using VaultSharp.Backends.Authentication.Models;
 using VaultSharp.Backends.Authentication.Models.AppRole;
 using VaultSharp.Backends.Authentication.Models.Token;
 
-namespace ConsoleApp
+namespace Microsoft.Extensions.Configuration.HashiCorpVault.Test
 {
-    public class SeedVaultService : ISeedVaultService
+    /// <innheritdoc/>
+    public class VaultWriteService : IVaultWriteService
     {
-        private readonly ILogger<SeedVaultService> _logger;
+        private readonly ILogger<VaultWriteService> _logger;
         private readonly VaultOptions _options;
         private readonly List<VaultSeeder> _seeder;
 
-        public SeedVaultService(ILogger<SeedVaultService> logger, VaultOptions options, List<VaultSeeder> seeder)
+        /// <summary>
+        /// The <see cref="VaultWriteService"/> constructor
+        /// </summary>
+        /// <param name="logger">The <see cref="ILogger{VaultWriteService}"/> logging.</param>
+        /// <param name="options">The <see cref="VaultOptions"/> for the service.</param>
+        /// <param name="seeder">The <see cref="List{VaultSeeder}"/></param>
+        public VaultWriteService(ILogger<VaultWriteService> logger, VaultOptions options, List<VaultSeeder> seeder)
         {
             _logger = logger;
             _options = options;
             _seeder = seeder;
         }
+
+        /// <inheritdoc/>
         public void SeedVault()
         {
             _logger.LogInformation("Starting seeding HashiCopr Vault");

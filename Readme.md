@@ -41,3 +41,9 @@ VaultOptions:
   - connectionString
   - option1
 ```
+
+# Docker Communication
+In order to troubleshoot connection between the Docker container, log into one of the containers and install `ping` [utility](https://stackoverflow.com/questions/39901311/docker-ubuntu-bash-ping-command-not-found):
+```
+apt-get update && apt-get install -y iputils-ping
+```

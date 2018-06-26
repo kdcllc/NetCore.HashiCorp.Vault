@@ -2,20 +2,16 @@
 using Microsoft.Extensions.Configuration.HashiCorpVault;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
     public class ReadVault : IReadVault
     {
-        private readonly ILogger<SeedVaultService> _logger;
+        private readonly ILogger<ReadVault> _logger;
         private readonly VaultOptions _options;
         private readonly IConfiguration _configuration;
 
-        public ReadVault(ILogger<SeedVaultService> logger, VaultOptions options, IConfiguration configuration)
+        public ReadVault(ILogger<ReadVault> logger, VaultOptions options, IConfiguration configuration)
         {
             _logger = logger;
             _options = options;
