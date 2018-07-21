@@ -4,6 +4,11 @@ Kubernetes pods.
 
 - ConfigMap - store non-secure information i.e HashiCorp Vault url with port number and keys for the secure data to be retrieved.
 - Secrets - store HashiCorp Vault credentials.
+## Nuget Package
+
+```
+Install-Package NetCore.HashiCorp.Vault -Version 1.0.0
+```
 
 # Docker
 There are two example of using this library in the Docker container.
