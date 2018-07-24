@@ -19,7 +19,7 @@ nuget:
 
 build_script:
   - dotnet restore -v quiet
-  - ps: dotnet build /p:configuration=Release /p:Version=$($env:appveyor_build_version)
+  - ps: dotnet build .\src\NetCore.HashiCorp.Vault\NetCore.HashiCorp.Vault.csproj /p:configuration=Release /p:Version=$($env:appveyor_build_version)
 
 test_script:
   - dotnet test tests/XUnitTests.csproj
