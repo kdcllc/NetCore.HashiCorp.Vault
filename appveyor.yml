@@ -18,8 +18,8 @@ nuget:
   disable_publish_on_pr: true
 
 build_script:
-  - dotnet restore -v quiet
-  - ps: dotnet build .\src\NetCore.HashiCorp.Vault\NetCore.HashiCorp.Vault.csproj /p:configuration=Release /p:Version=$($env:appveyor_build_version)
+  - ps: dotnet restore NetCore.HashiCorp.Vault.sln -v quiet
+  - ps: dotnet build src/NetCore.HashiCorp.Vault/ /p:configuration=Release /p:Version=$($env:appveyor_build_version)
 
 test_script:
   - dotnet test tests/XUnitTests.csproj
