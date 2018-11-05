@@ -1,7 +1,7 @@
-FROM microsoft/dotnet:2.1-runtime AS base
+FROM microsoft/dotnet:2.1.5-runtime AS base
 WORKDIR /app
 
-FROM microsoft/dotnet:2.1-sdk AS build
+FROM microsoft/dotnet:2.1.403-sdk AS build
 WORKDIR /src
 COPY src/ConsoleApp/ConsoleApp.csproj src/ConsoleApp/
 COPY src/NetCore.HashiCorp.Vault/NetCore.HashiCorp.Vault.csproj src/NetCore.HashiCorp.Vault/

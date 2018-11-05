@@ -19,15 +19,13 @@
 		<ProjectReference Include="..\NetCore.HashiCorp.Vault\NetCore.HashiCorp.Vault.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.0" />
-
-		<PackageReference Include="VaultSharp" Version="0.6.4" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
 	</ItemGroup>
 </Project>

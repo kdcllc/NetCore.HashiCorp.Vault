@@ -7,7 +7,7 @@ Kubernetes pods.
 ## Nuget Package
 
 ```
-Install-Package NetCore.HashiCorp.Vault -Version 1.0.0
+Install-Package NetCore.HashiCorp.Vault
 ```
 
 # Docker
