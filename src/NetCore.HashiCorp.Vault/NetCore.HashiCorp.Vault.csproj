@@ -14,6 +14,7 @@
     <PackageTags>asp.net core, kubernetes, hashicorp vault</PackageTags>
     <PackageLicenseUrl>https://github.com/kdcllc/NetCore.HashiCorp.Vault/blob/master/LICENSE</PackageLicenseUrl>
  		<PackageIconUrl>https://raw.githubusercontent.com/kdcllc/NetCore.HashiCorp.Vault/master/img/logo64x64.png</PackageIconUrl>
+ 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     
   </PropertyGroup>
 
