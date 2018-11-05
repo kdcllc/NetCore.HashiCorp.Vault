@@ -1,9 +1,9 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+FROM microsoft/dotnet:2.1.5-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 52767
 EXPOSE 44339
 
-FROM microsoft/dotnet:2.1-sdk AS build
+FROM microsoft/dotnet:2.1.403-sdk AS build
 WORKDIR /src
 COPY src/WebApp/WebApp.csproj src/WebApp/
 COPY src/NetCore.HashiCorp.Vault/NetCore.HashiCorp.Vault.csproj src/NetCore.HashiCorp.Vault/
